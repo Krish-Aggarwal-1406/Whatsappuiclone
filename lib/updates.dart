@@ -24,7 +24,8 @@ class UpdatesPage extends StatelessWidget {
           IconButton(onPressed: (){}, icon:Icon(Icons.qr_code_scanner),color: Colors.white),
           IconButton(onPressed: (){}, icon: Icon(Icons.photo_camera_outlined),color: Colors.white),
           IconButton(onPressed: (){}, icon: Icon(Icons.search),color: Colors.white),
-          IconButton(onPressed: (){}, icon: Icon(Icons.more_vert),color: Colors.white)
+          Builder( builder: (context) => IconButton( icon: Icon(Icons.more_vert), color: Colors.white, onPressed: () { Scaffold.of(context).openEndDrawer(); }, ),)
+
         ],
       ),
       body: SingleChildScrollView(
@@ -43,7 +44,7 @@ class UpdatesPage extends StatelessWidget {
             ),
             SizedBox(
               height: 130,
-              child: ListView.builder(shrinkWrap: true, physics: NeverScrollableScrollPhysics(),
+              child: ListView.builder(shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
                   itemCount: images.length,
                   itemBuilder: (context,index)=>Container(

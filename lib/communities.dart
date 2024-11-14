@@ -26,7 +26,7 @@ class CommunitiesPage extends StatelessWidget {
         actions: [
           IconButton(onPressed: (){}, icon:Icon(Icons.qr_code_scanner),color: Colors.white),
           IconButton(onPressed: (){}, icon: Icon(Icons.photo_camera_outlined),color: Colors.white),
-          IconButton(onPressed: (){}, icon: Icon(Icons.more_vert),color: Colors.white)
+          Builder( builder: (context) => IconButton( icon: Icon(Icons.more_vert), color: Colors.white, onPressed: () { Scaffold.of(context).openEndDrawer(); }, ),)
         ],
       ),
       body: SingleChildScrollView(
