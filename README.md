@@ -10,9 +10,15 @@ I have created a clone of the Whatsapp UI using Flutter .This is one of my start
 **Settings**: Provides various options such as account settings, notifications, etc.
 **New group**:Screen that provides contacts to make a new group
 ## Screenshots
-Here are a few screenshots of my app
-![calls page](assets/callpagewhatsapp.jpg)
-![chat page](assets/chatpagewhatsapp.jpg)
-![status page](assets/statuspagewhatsapp.jpg)
-![community page](assets/communitypagewhatsapp.jpg)
-![setting page](assets/settingpagewhatsapp.jpg)
+Here are a few screenshots of my app:
+
+<img src="assets/callpagewhatsapp.jpg" alt="Calls Page" width="300" height="200" />
+<br>
+<img src="assets/chatpagewhatsapp.jpg" alt="Chat Page" width="300" height="200" />
+<br>
+<img src="assets/statuspagewhatsapp.jpg" alt="Status Page" width="300" height="200" />
+<br>
+<img src="assets/communitypagewhatsapp.jpg" alt="Community Page" width="300" height="200" />
+<br>
+<img src="assets/settingpagewhatsapp.jpg" alt="Setting Page" width="300" height="200" />
+
