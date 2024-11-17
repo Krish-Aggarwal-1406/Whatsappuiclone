@@ -12,9 +12,9 @@ I have created a clone of the Whatsapp UI using Flutter .This is one of my start
 ## Screenshots
 Here are a few screenshots of my app:
 
-<img src="assets/callpagewhatsapp.jpg" alt="Calls Page" width="300" height="200" />
-<img src="assets/chatpagewhatsapp.jpg" alt="Chat Page" width="300" height="200" />
-<img src="assets/statuspagewhatsapp.jpg" alt="Status Page" width="300" height="200" />
-<img src="assets/communitypagewhatsapp.jpg" alt="Community Page" width="300" height="200" />
-<img src="assets/settingpagewhatsapp.jpg" alt="Setting Page" width="300" height="200" />
+<img src="assets/callpagewhatsapp.jpg" alt="Calls Page" width="300" height="400" />
+<img src="assets/chatpagewhatsapp.jpg" alt="Chat Page" width="300" height="400" />
+<img src="assets/statuspagewhatsapp.jpg" alt="Status Page" width="300" height="400" />
+<img src="assets/communitypagewhatsapp.jpg" alt="Community Page" width="300" height="400" />
+<img src="assets/settingpagewhatsapp.jpg" alt="Setting Page" width="300" height="400" />
 
