@@ -1,16 +1,18 @@
-# whatsappui
+# Whatsapp UI clone
 
-A new Flutter project.
+I have created a clone of the Whatsapp UI using Flutter .This is one of my starting project in the journey of learning flutter.It replicates the primary user interface elements and layout of the WhatsApp messaging app.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Features - 
+**Chat List**: Displays a list of recent chats with individual users and groups. 
+**Status Screen**: Shows a list of status updates from contacts. 
+**Call Screen**: Displays recent call logs with details. 
+**Community screen**:Displays different communities .
+**Settings**: Provides various options such as account settings, notifications, etc.
+**New group**:Screen that provides contacts to make a new group
+## Screenshots
+Here are a few screenshots of my app
+![calls page]("C:\Users\krish\OneDrive\Desktop\App dev tasks\callpagewhatsapp.jpg")
+![chat page]("C:\Users\krish\OneDrive\Desktop\App dev tasks\chatpagewhatsapp.jpg")
+![status page]("C:\Users\krish\OneDrive\Desktop\App dev tasks\statuspagewhatsapp.jpg")
+![community page]("C:\Users\krish\OneDrive\Desktop\App dev tasks\communitypagewhatsapp.jpg")
+![setting page]("C:\Users\krish\OneDrive\Desktop\App dev tasks\settingpagewhatsapp.jpg")
