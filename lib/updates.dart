@@ -6,11 +6,19 @@ class UpdatesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     var scrwidth=MediaQuery.of(context).size.width;
     var scrheight=MediaQuery.of(context).size.height;
-    List<String> whatsappChannelNames = [
-      'Tech Trends Chat','Fitness Gurus', 'Travel Enthusiasts', 'Cooking Secrets', 'Book Lovers Club', 'Startup Discussions', 'Music Mania', 'Parenting Tips', 'Photography Hub', 'Daily Motivation', 'Gaming Legends',];
-     List<String> whatsappChannelSubtitles = ['Tech updates.', 'Fitness tips.', 'Travel stories.', 'Yummy recipes.', 'Book chats.', 'Startup talk.', 'Music picks.', 'Parenting tips.', 'Photo skills.', 'Daily quotes.', 'Gaming news.',];
-    List<String> times = [ '08:00 AM','08:05 AM', '09:30 AM', '11:00 AM', '12:45 PM', '02:15 PM', '03:30 PM', '05:00 PM', '06:30 PM', '08:00 PM', '09:45 PM',];
-    List<Image>  images=[Image.asset('assets/techtrends.jpg'),Image.asset('assets/fitness.jpg'),Image.asset('assets/travel.jpg'),Image.asset('assets/cooking.jpg'),Image.asset('assets/booklover.jpg'),Image.asset('assets/startup.jpg'),Image.asset('assets/music.jpg'),Image.asset('assets/parenting.jpg'),Image.asset('assets/photography.jpg'),Image.asset('assets/motivation.jpg'),Image.asset('assets/gaming.jpg'),];
+    List<data> currdata=[
+      data(whatsappChannelNames: 'Tech Trends Chat',whatsappChannelSubtitles: 'Tech updates.', times: '08:00 AM', images:Image.asset('assets/techtrends.jpg'),),
+      data(whatsappChannelNames:'Fitness Gurus', whatsappChannelSubtitles: 'Fitness tips.', times:'08:05 AM', images: Image.asset('assets/fitness.jpg'),),
+      data(whatsappChannelNames: 'Travel Enthusiasts',  whatsappChannelSubtitles: 'Travel stories.',  times:  '09:30 AM', images: Image.asset('assets/travel.jpg'),),
+      data(whatsappChannelNames: 'Cooking Secrets', whatsappChannelSubtitles: 'Yummy recipes.', times: '11:00 AM', images: Image.asset('assets/cooking.jpg'),),
+      data(whatsappChannelNames:  'Book Lovers Club',  whatsappChannelSubtitles: 'Book chats.', times: '12:45 PM', images: Image.asset('assets/booklover.jpg'),),
+      data(whatsappChannelNames:'Startup Discussions', whatsappChannelSubtitles: 'Startup talk.', times: '02:15 PM',  images: Image.asset('assets/startup.jpg')),
+      data(whatsappChannelNames: 'Music Mania', whatsappChannelSubtitles: 'Music picks.', times: '03:30 PM', images: Image.asset('assets/music.jpg')),
+     data(whatsappChannelNames: 'Parenting Tips', whatsappChannelSubtitles: 'Parenting tips.', times: '05:00 PM', images: Image.asset('assets/parenting.jpg')),
+     data(whatsappChannelNames:'Photography Hub', whatsappChannelSubtitles: 'Photo skills.', times:  '06:30 PM', images: Image.asset('assets/photography.jpg')),
+     data(whatsappChannelNames: 'Daily Motivation', whatsappChannelSubtitles:  'Daily quotes.', times:'08:00 PM', images: Image.asset('assets/motivation.jpg')),
+     data(whatsappChannelNames:'Gaming Legends', whatsappChannelSubtitles: 'Gaming news.', times: '09:45 PM', images: Image.asset('assets/gaming.jpg'),)
+    ];
     return Scaffold(
       backgroundColor: Color(0xFF0B141B),
       appBar:AppBar(
@@ -46,7 +54,7 @@ class UpdatesPage extends StatelessWidget {
               height: 130,
               child: ListView.builder(shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
-                  itemCount: images.length,
+                  itemCount: currdata.length,
                   itemBuilder: (context,index)=>Container(
                     decoration: BoxDecoration(border: Border.all(color: Colors.green,width: 2),
                     shape: BoxShape.circle),
@@ -54,11 +62,13 @@ class UpdatesPage extends StatelessWidget {
                     margin: EdgeInsets.symmetric(horizontal: 7),
                     child: CircleAvatar(
                       radius: 30,
-                      backgroundImage: images[index].image,),
+                      backgroundImage: currdata[index].images.image,),
                   )),
             ),
+            Container(margin: EdgeInsets.only(top: 5),
+              height: 0.3,decoration: BoxDecoration(color: Colors.grey),),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 10),
+              padding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
               child: Row(
         
                 children: [
@@ -79,8 +89,8 @@ class UpdatesPage extends StatelessWidget {
 
               child: ListView.builder(
                   shrinkWrap: true, physics: NeverScrollableScrollPhysics(),
-                  itemCount: whatsappChannelNames.length,
-                  itemBuilder: (context,index)=> ListTile(title:Text(whatsappChannelNames[index],
+                  itemCount: currdata.length,
+                  itemBuilder: (context,index)=> ListTile(title:Text(currdata[index].whatsappChannelNames,
                     style: TextStyle(
                       fontWeight: FontWeight.w300,
                       fontSize: 16,
@@ -89,14 +99,14 @@ class UpdatesPage extends StatelessWidget {
                     subtitle:Row(
                       children: [
                         Icon(Icons.photo,color: Colors.grey,),
-                        Text(whatsappChannelSubtitles[index],style: TextStyle(color: Colors.grey),)
+                        Text(currdata[index].whatsappChannelSubtitles,style: TextStyle(color: Colors.grey),)
                       ],
                     ),
                     leading: CircleAvatar(
-                      backgroundImage:images[index].image ,
+                      backgroundImage:currdata[index].images.image ,
                       backgroundColor:Colors.white,
                     ),
-                    trailing: Text(times[index],
+                    trailing: Text(currdata[index].times,
                       style: TextStyle(
                           color: Colors.grey,
                           fontSize: 13
@@ -108,4 +118,11 @@ class UpdatesPage extends StatelessWidget {
       ),
     );
   }
+}
+class data {
+  final String whatsappChannelNames;
+  final String whatsappChannelSubtitles;
+  final String times;
+  final Image images;
+  data( {required this.whatsappChannelNames, required this.whatsappChannelSubtitles,required this.times,required this.images});
 }

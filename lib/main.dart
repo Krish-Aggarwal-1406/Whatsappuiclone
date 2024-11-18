@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'homepage.dart';
+import 'homepage.dart'; // Ensure this matches the location of your MyHomePage file
+import 'splashscreen.dart'; // Ensure this matches the location of your SplashScreen file
 
 void main() {
   runApp(const MyApp());
@@ -8,16 +9,17 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home:DefaultTabController(
-        length: 4,
-        child: MyHomePage(),
+      theme: ThemeData(
+        popupMenuTheme: PopupMenuThemeData(
+            color:Color(0xFF0B141B),
+
+        )
       ),
+      debugShowCheckedModeBanner: false,
+      home: SplashScreen(), // Set SplashScreen as the initial screen
     );
   }
 }
-

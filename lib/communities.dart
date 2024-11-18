@@ -6,14 +6,11 @@ class CommunitiesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     var scrwidth=MediaQuery.of(context).size.width;
     var scrheight=MediaQuery.of(context).size.height;
-    List<String> whatsappChannelNames = [
-      'Tech Trends Chat','Fitness Gurus', 'Travel Enthusiasts',];
-    List<String> community1 =['Announcements','App Mentoring', 'General',];
-    List<String> community1Subtitles = ['There will be meeting at 9', 'Give progress', 'Kaise ho sab',];
-
-    List<String> whatsappChannelSubtitles = ['Tech updates.', 'Fitness tips.', 'Travel stories.', 'Yummy recipes.',];
-    List<String> times = [ '08:00 AM','08:05 AM', '09:30 AM', '11:00 AM', '12:45 PM', '02:15 PM', '03:30 PM', '05:00 PM', '06:30 PM', '08:00 PM', '09:45 PM',];
-    List<Image>  images=[Image.asset('assets/techtrends.jpg'),Image.asset('assets/fitness.jpg'),Image.asset('assets/travel.jpg'),];
+    List<data> currdata=[
+      data(whatsappChannelNames: 'Tech Trends Chat', whatsappChannelSubtitles: 'Tech updates.', community1: 'Announcements', community1Subtitles: 'There will be meeting at 9', times:  '08:00 AM', images: Image.asset('assets/techtrends.jpg')),
+      data(whatsappChannelNames: 'Fitness Gurus', whatsappChannelSubtitles: 'Fitness tips.', community1: 'App Mentoring', community1Subtitles: 'Give progress', times: '08:05 AM', images: Image.asset('assets/fitness.jpg')),
+      data(whatsappChannelNames: 'Travel Enthusiasts', whatsappChannelSubtitles: 'Travel stories.', community1: 'General', community1Subtitles: 'Kaise ho sab', times: '09:30 AM', images: Image.asset('assets/travel.jpg')),
+    ];
     return Scaffold(
       backgroundColor: Color(0xFF0B141B),
       appBar:AppBar(
@@ -32,6 +29,7 @@ class CommunitiesPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            //new community container
             Container(
               margin: EdgeInsets.only(bottom: 15),
               child: Row(
@@ -58,7 +56,16 @@ class CommunitiesPage extends StatelessWidget {
                 ],
               ),
             ),
+
+
+
+
             Container(height: 10,decoration: BoxDecoration(color: Colors.black),),
+
+
+
+
+            //community title
             Container(
               margin: EdgeInsets.only(left: 15,top: 20),
               child: Row(
@@ -77,18 +84,35 @@ class CommunitiesPage extends StatelessWidget {
                 ],
               ),
             ),
+
+
+
+
             Container(margin: EdgeInsets.only(top: 5),
               height: 0.3,decoration: BoxDecoration(color: Colors.grey),),
+
+
+
+
+            //first community
             SizedBox(
               child: ListView.builder(shrinkWrap: true,
-                  itemCount: community1.length,
-                  itemBuilder: (context,index)=>ListTile(title: Text(community1[index],style: TextStyle(color: Colors.white),),
-                    leading: CircleAvatar(
-                      backgroundImage: images[index].image,
-                    ),
-                  trailing: Text(times[index],style: TextStyle(color: Colors.grey),),
-                  subtitle: Text(community1Subtitles[index],style: TextStyle(color: Colors.grey),),)),
+                  itemCount: currdata.length,
+                  itemBuilder: (context,index)=>Padding(
+                    padding:EdgeInsets.only(left: 7),
+                    child: ListTile(title: Text(currdata[index].community1,style: TextStyle(color: Colors.white),),
+                      leading: CircleAvatar(radius: 20,
+                        backgroundImage: currdata[index].images.image,
+                      ),
+                    trailing: Text(currdata[index].times,style: TextStyle(color: Colors.grey),),
+                    subtitle: Text(currdata[index].community1Subtitles,style: TextStyle(color: Colors.grey),),),
+                  )),
             ),
+
+
+
+
+            //view all container
             Container(
               margin: EdgeInsets.only(left: 15,top: 20),
               height: 50,
@@ -102,7 +126,15 @@ class CommunitiesPage extends StatelessWidget {
                 ],
               ),
             ),
+
+
+
+
             Container(height: 10,decoration: BoxDecoration(color: Colors.black),),
+
+
+
+            //community title
             Container(
               margin: EdgeInsets.only(left: 15,top: 20),
               child: Row(
@@ -121,18 +153,34 @@ class CommunitiesPage extends StatelessWidget {
                 ],
               ),
             ),
+
+
+
             Container(margin: EdgeInsets.only(top: 5),
               height: 0.3,decoration: BoxDecoration(color: Colors.grey),),
+
+
+
+
+            //second community
             SizedBox(
               child: ListView.builder(shrinkWrap: true,
-                  itemCount: whatsappChannelNames.length,
-                  itemBuilder: (context,index)=>ListTile(title: Text(whatsappChannelNames[index],style: TextStyle(color: Colors.white),),
-                  leading: CircleAvatar(
-                    backgroundImage: images[index].image,
-                  ),
-                    trailing: Text(times[index],style: TextStyle(color: Colors.grey),),
-                    subtitle: Text(whatsappChannelSubtitles[index],style: TextStyle(color: Colors.grey),),)),
+                  itemCount: currdata.length,
+                  itemBuilder: (context,index)=>Padding(
+                    padding:  EdgeInsets.only(left: 7),
+                    child: ListTile(title: Text(currdata[index].whatsappChannelNames,style: TextStyle(color: Colors.white),),
+                    leading: CircleAvatar(
+                      backgroundImage: currdata[index].images.image,
+                    ),
+                      trailing: Text(currdata[index].times,style: TextStyle(color: Colors.grey),),
+                      subtitle: Text(currdata[index].whatsappChannelSubtitles,style: TextStyle(color: Colors.grey),),),
+                  )),
             ),
+
+
+
+
+            //view all container
             Container(
               margin: EdgeInsets.only(left: 15,top: 20),
               height: 50,
@@ -146,6 +194,10 @@ class CommunitiesPage extends StatelessWidget {
                 ],
               ),
             ),
+
+
+
+
             Container(height: 10,decoration: BoxDecoration(color: Colors.black),),
           ],
         ),
@@ -153,3 +205,14 @@ class CommunitiesPage extends StatelessWidget {
     );
   }
 }
+class data{
+  final String whatsappChannelNames;
+  final String whatsappChannelSubtitles;
+  final String community1;
+  final String community1Subtitles;
+  final String times;
+  final Image images;
+  data( {required this.whatsappChannelNames, required this.whatsappChannelSubtitles,required this.community1,required this.community1Subtitles,required this.times,required this.images});
+}
+
+

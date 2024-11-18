@@ -6,10 +6,19 @@ class CallsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     var scrwidth=MediaQuery.of(context).size.width;
     var scrheight=MediaQuery.of(context).size.height;
-    List<String> names=['Father','Mother','Brother','GDG Volunteers','GDG on campus','Friend 1','Friend 2','Friend 3','Friend 4','Friend 5','Friend 6'];
-    List<Icon> icon = [ Icon(Icons.call), Icon(Icons.videocam), Icon(Icons.call), Icon(Icons.videocam), Icon(Icons.call), Icon(Icons.videocam), Icon(Icons.call), Icon(Icons.videocam), Icon(Icons.call), Icon(Icons.videocam), Icon(Icons.call),];
-    List<Image>  images=[Image.asset('assets/brainpic.png'),Image.asset('assets/vecteezy_doctor-female-with-face-mask-isolated-icon_-removebg-preview.png'),Image.asset('assets/chatbot-removebg-preview.png'),Image.asset('assets/google icon photo.jpeg'),Image.asset('assets/google icon photo.jpeg'),Image.asset('assets/3-removebg-preview.png'),Image.asset('assets/brainpic.png'),Image.asset('assets/chatbot-removebg-preview.png'),Image.asset('assets/Screenshot_2024-10-29_204944-removebg-preview__1_-removebg-preview.png'),Image.asset('assets/Screenshot_2024-11-03_120912-removebg-preview.png'),Image.asset('assets/vecteezy_doctor-female-with-face-mask-isolated-icon_-removebg-preview.png'),];
-    List<String> times = [ 'Today 08:00 AM','Today 08:05 AM', 'Today 09:30 AM', 'Today 11:00 AM', 'Today 12:45 PM', 'Yesterday 02:15 PM', 'Yesterday 03:30 PM', 'Yesterday 05:00 PM', 'Yesterday 06:30 PM', 'Yesterday 08:00 PM', 'Yesterday 09:45 PM',];
+    List<data> currdata=[
+      data(names:'Father', icon: Icon(Icons.call), times: 'Today 08:00 AM', images: Image.asset('assets/brainpic.png')),
+      data(names: 'Mother', icon: Icon(Icons.videocam), times: 'Today 08:05 AM', images: Image.asset('assets/vecteezy_doctor-female-with-face-mask-isolated-icon_-removebg-preview.png')),
+      data(names: 'Brother', icon: Icon(Icons.call), times: 'Today 09:30 AM', images: Image.asset('assets/chatbot-removebg-preview.png')),
+      data(names: 'GDG Volunteers', icon: Icon(Icons.videocam), times: 'Today 11:00 AM', images: Image.asset('assets/google icon photo.jpeg')),
+      data(names: 'GDG on campus', icon: Icon(Icons.call), times: 'Today 12:45 PM', images: Image.asset('assets/google icon photo.jpeg')),
+      data(names: 'Friend 1', icon: Icon(Icons.videocam), times: 'Yesterday 02:15 PM', images: Image.asset('assets/3-removebg-preview.png')),
+      data(names: 'Friend 2', icon: Icon(Icons.call), times: 'Yesterday 03:30 PM', images: Image.asset('assets/brainpic.png')),
+      data(names: 'Friend 3', icon: Icon(Icons.videocam), times: 'Yesterday 05:00 PM', images: Image.asset('assets/chatbot-removebg-preview.png')),
+      data(names: 'Friend 4', icon: Icon(Icons.call), times: 'Yesterday 06:30 PM', images: Image.asset('assets/Screenshot_2024-10-29_204944-removebg-preview__1_-removebg-preview.png')),
+      data(names: 'Friend 5', icon: Icon(Icons.videocam), times: 'Yesterday 08:00 PM', images: Image.asset('assets/Screenshot_2024-10-29_204944-removebg-preview__1_-removebg-preview.png')),
+      data(names: 'Friend 6', icon: Icon(Icons.call), times: 'Yesterday 09:45 PM', images: Image.asset('assets/vecteezy_doctor-female-with-face-mask-isolated-icon_-removebg-preview.png')),
+    ];
     return Scaffold(
       backgroundColor: Color(0xFF0B141B),
       appBar:AppBar(
@@ -39,8 +48,8 @@ class CallsPage extends StatelessWidget {
           ),
           Expanded(
             child: ListView.builder(
-                itemCount: names.length,
-                itemBuilder: (context,index)=> ListTile(title:Text(names[index],
+                itemCount: currdata.length,
+                itemBuilder: (context,index)=> ListTile(title:Text(currdata[index].names,
                   style: TextStyle(
                     fontWeight: FontWeight.w400,
                     fontSize: 18,
@@ -49,14 +58,14 @@ class CallsPage extends StatelessWidget {
                   subtitle:Row(
                     children: [
                       Icon(Icons.north_east,color: Colors.green,),
-                      Text(times[index])
+                      Text(currdata[index].times)
                     ],
                   ),
                   leading: CircleAvatar(
-                    backgroundImage:images[index].image ,
+                    backgroundImage:currdata[index].images.image ,
                     backgroundColor:Colors.white,
                   ),
-                  trailing: Icon(icon[index].icon,color: Colors.white,),)
+                  trailing: Icon(currdata[index].icon.icon,color: Colors.white,),)
             ),
           )
         ],
@@ -64,3 +73,12 @@ class CallsPage extends StatelessWidget {
     );
   }
 }
+class data {
+  final String names;
+  final Icon icon;
+  final Image images;
+  final String times;
+
+  data( {required this.names, required this.icon,required this.times,required this.images});
+}
+
