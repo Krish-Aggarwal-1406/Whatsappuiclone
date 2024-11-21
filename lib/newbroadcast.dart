@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart ';
 import 'settings.dart';
-class NewGroupPage extends StatelessWidget {
-  const NewGroupPage({super.key});
+class NewBroadcastPage extends StatelessWidget {
+  const NewBroadcastPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,41 +24,45 @@ class NewGroupPage extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(backgroundColor: Color.fromARGB(
           255, 33, 190, 98),
-        onPressed: (){},child: Icon(Icons.arrow_forward,color: Color(0xFF0B141B),size: 25,),),
+        onPressed: (){},child: Icon(Icons.check,color: Color(0xFF0B141B),size: 25,),),
 
       backgroundColor: Color(0xFF0B141B),
       appBar:AppBar(
-        iconTheme: IconThemeData(color: Colors.white),
-        backgroundColor: Color(0xFF0B141B),
-        title: Column(
-          children: [
-            Text(style:TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize:20,
-                color: Colors.white
-            ),textAlign: TextAlign.left,'New Group'),
-            Text('Add members',style:TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize:13,
-                color: Colors.white
-            ),textAlign: TextAlign.left)
-          ],
-        ),
-        actions: [
-          IconButton(onPressed: (){}, icon:Icon(Icons.search),color: Colors.white),
+          iconTheme: IconThemeData(color: Colors.white),
+          backgroundColor: Color(0xFF0B141B),
+          title: Column(
+            children: [
+              Text(style:TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize:20,
+                  color: Colors.white
+              ),textAlign: TextAlign.left,'New Broadcast'),
+              Text('0 of 256 selected',style:TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize:13,
+                  color: Colors.white
+              ),textAlign: TextAlign.left)
+            ],
+          ),
+          actions: [
+            IconButton(onPressed: (){}, icon:Icon(Icons.search),color: Colors.white),
           ]
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
+            SizedBox(height: 10,),
+            Text('Only contacts with +91 80536 45063 in their adress',style: TextStyle(color: Colors.grey),),
+            Text('book will recieve your broadcast messages',style: TextStyle(color: Colors.grey),),
+            Divider(color:Colors.grey ,thickness: 0.5,),
             Container(alignment: Alignment.centerLeft,
                 padding: EdgeInsets.only(left: 15,top: 15),
-                child: Text('Frequently Contacted',style: TextStyle(color: Colors.grey),)),
+                child: Text('Contacts from Whatsapp',style: TextStyle(color: Colors.grey),)),
 
             ListView.builder(
-              shrinkWrap: true,
+                shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
-                itemCount:5,
+                itemCount:currdata.length,
                 itemBuilder: (context,index)=> ListTile(title:Text(currdata[index].names,
                   style: TextStyle(
                     fontWeight: FontWeight.w400,
@@ -73,28 +77,8 @@ class NewGroupPage extends StatelessWidget {
 
                 )
             ),
-            Container(alignment: Alignment.centerLeft,
-                padding: EdgeInsets.only(left: 15,top: 15),
-                child: Text('Contacts from Whatsapp',style: TextStyle(color: Colors.grey),)),
-            ListView.builder(itemCount: currdata.length-startindex,
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                itemBuilder: (context,index){
-              int dataindex=startindex+index;
-              return ListTile(title:Text(currdata[dataindex].names,
-                style: TextStyle(
-                  fontWeight: FontWeight.w400,
-                  fontSize: 18,
-                  color: Colors.white,
-                ),),
-                subtitle:Text(currdata[dataindex].messages,style: TextStyle(color: Colors.grey),),
-                leading: CircleAvatar(
-                  backgroundImage:currdata[dataindex].images.image ,
-                  backgroundColor:Colors.white,
-                ),
 
-              );
-            })
+
           ],
         ),
       ),

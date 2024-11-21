@@ -20,6 +20,9 @@ class CallsPage extends StatelessWidget {
       data(names: 'Friend 6', icon: Icon(Icons.call), times: 'Yesterday 09:45 PM', images: Image.asset('assets/vecteezy_doctor-female-with-face-mask-isolated-icon_-removebg-preview.png')),
     ];
     return Scaffold(
+      floatingActionButton: FloatingActionButton(backgroundColor: Color.fromARGB(
+          255, 33, 190, 98),
+        onPressed: (){},child: Icon(Icons.add_call,color: Color(0xFF0B141B),size: 25,),),
       backgroundColor: Color(0xFF0B141B),
       appBar:AppBar(
         backgroundColor: Color(0xFF0B141B),
@@ -35,19 +38,54 @@ class CallsPage extends StatelessWidget {
           Builder( builder: (context) => IconButton( icon: Icon(Icons.more_vert), color: Colors.white, onPressed: () { Scaffold.of(context).openEndDrawer(); }, ),)
         ],
       ),
-      body: Column(
-        children: [
-          Container(
-            alignment:Alignment.centerLeft ,
-            margin: EdgeInsets.only(left: 15),
-            child: Text('Recent',
-              style: TextStyle(
-              fontSize: 20,
-                color: Colors.white
-            ),),
-          ),
-          Expanded(
-            child: ListView.builder(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+              child: Row(
+        
+                children: [
+        
+                  Text('Favourites',style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.white
+                  ),),
+                  SizedBox(width: scrwidth*.6,),
+                  Text('More',style: TextStyle(fontSize: 15,
+                      color: Colors.green),),
+                  Icon(Icons.arrow_forward_ios,color: Colors.green,size: 15,)
+                ],
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 15,vertical: 10),
+              child: Row(
+                children: [
+                  CircleAvatar(radius: 22,
+                    backgroundColor:Colors.grey,
+                    child: Icon(Icons.group,color: Colors.white,),
+                  ),
+                  SizedBox(width: 20,),
+                  Text('Discussion group for freshers',style: TextStyle(color: Colors.white),),
+                  SizedBox(width: 80,),
+                  Icon(Icons.multitrack_audio,color: Colors.white,)
+                ],
+              ),
+            ),
+        
+            Container(
+              alignment:Alignment.centerLeft ,
+              margin: EdgeInsets.only(left: 15),
+              child: Text('Recent',
+                style: TextStyle(
+                fontSize: 18,
+                  color: Colors.white
+              ),),
+            ),
+            ListView.builder(
+              shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
                 itemCount: currdata.length,
                 itemBuilder: (context,index)=> ListTile(title:Text(currdata[index].names,
                   style: TextStyle(
@@ -58,7 +96,7 @@ class CallsPage extends StatelessWidget {
                   subtitle:Row(
                     children: [
                       Icon(Icons.north_east,color: Colors.green,),
-                      Text(currdata[index].times)
+                      Text(currdata[index].times,style: TextStyle(color: Colors.grey),)
                     ],
                   ),
                   leading: CircleAvatar(
@@ -66,9 +104,9 @@ class CallsPage extends StatelessWidget {
                     backgroundColor:Colors.white,
                   ),
                   trailing: Icon(currdata[index].icon.icon,color: Colors.white,),)
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }

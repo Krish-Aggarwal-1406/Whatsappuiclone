@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart ';
+import 'package:whatsappui/newbroadcast.dart';
 import 'package:whatsappui/newgroup.dart';
 import 'settings.dart';
 class ChatsPage extends StatelessWidget {
@@ -20,7 +21,9 @@ class ChatsPage extends StatelessWidget {
     data(names:'Friend 6', messages: 'Success is around the corner.', times: '09:45 PM', images: Image.asset('assets/vecteezy_doctor-female-with-face-mask-isolated-icon_-removebg-preview.png'))
     ];
     return Scaffold(
-
+      floatingActionButton: FloatingActionButton(backgroundColor: Color.fromARGB(
+          255, 33, 190, 98),
+        onPressed: (){},child: Icon(Icons.add_comment_rounded,color: Color(0xFF0B141B),size: 25,),),
       backgroundColor: Color(0xFF0B141B),
       appBar:AppBar(
         backgroundColor: Color(0xFF0B141B),
@@ -37,7 +40,7 @@ class ChatsPage extends StatelessWidget {
           {
             case 'Option 1':Navigator.push(context, MaterialPageRoute(builder: (context)=>NewGroupPage()));
               break;
-            case 'Option 2':
+            case 'Option 2':Navigator.push(context, MaterialPageRoute(builder: (context)=>NewBroadcastPage()));
               break;
             case 'Option 3':
               break;
