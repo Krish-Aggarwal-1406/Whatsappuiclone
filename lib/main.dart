@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'homepage.dart'; // Ensure this matches the location of your MyHomePage file
 import 'splashscreen.dart'; // Ensure this matches the location of your SplashScreen file
 
@@ -11,8 +12,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       theme: ThemeData(
+        scaffoldBackgroundColor: Color(0xFF0B141B),
+        appBarTheme: AppBarTheme(
+          backgroundColor: Color(0xFF0B141B),
+        ),
         popupMenuTheme: PopupMenuThemeData(
             color:Color(0xFF0B141B),
 

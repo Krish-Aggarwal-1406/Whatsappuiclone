@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'chats.dart';
-import 'calls.dart';
-import 'communities.dart';
-import 'updates.dart';
+import 'chatpages/chats.dart';
+import 'call pages/calls.dart';
+import 'communitypages/communities.dart';
+import 'updatepages/updates.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});

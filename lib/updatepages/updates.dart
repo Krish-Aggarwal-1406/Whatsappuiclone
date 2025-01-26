@@ -1,8 +1,9 @@
 import 'dart:math';
+import 'statusprivacy.dart';
 
 import 'package:flutter/material.dart';
-import 'package:whatsappui/createchannel.dart';
-import 'settings.dart';
+import 'package:whatsappui/updatepages/createchannel.dart';
+import '../settings/settings.dart';
 class UpdatesPage extends StatelessWidget {
   const UpdatesPage({super.key});
 
@@ -61,12 +62,11 @@ class UpdatesPage extends StatelessWidget {
         ),textAlign: TextAlign.left,'Updates'),
         actions: [
           IconButton(onPressed: (){}, icon:Icon(Icons.qr_code_scanner),color: Colors.white),
-          IconButton(onPressed: (){}, icon: Icon(Icons.photo_camera_outlined),color: Colors.white),
           IconButton(onPressed: (){}, icon: Icon(Icons.search),color: Colors.white),
           PopupMenuButton<String>( onSelected: (String result)
           { switch (result)
           {
-            case 'Option 1':
+            case 'Option 1':Navigator.push(context, MaterialPageRoute(builder: (context)=>StatusPrivacy()));
             break;
             case 'Option 2':showModalBottomSheet(context: context, builder: (BuildContext context)=>CreateChannelPage());
               break;
@@ -224,7 +224,8 @@ class UpdatesPage extends StatelessWidget {
                  shape: RoundedRectangleBorder( borderRadius: BorderRadius.circular(20),
                      side: BorderSide(color: Colors.grey, width: 0.5),  ),),
                        onPressed: (){}, child: Text('Explore more',style: TextStyle(color: Colors.green),)),
-             )
+             ),
+
           ],
         ),
       ),

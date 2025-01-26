@@ -1,5 +1,19 @@
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
+import 'package:whatsappui/settings/App_language.dart';
+import 'package:whatsappui/settings/app_updates.dart';
+import 'package:whatsappui/settings/avatar.dart';
+import 'package:whatsappui/settings/chats/chats_settings.dart';
+import 'package:whatsappui/settings/help/help.dart';
+import 'package:whatsappui/settings/invite_friend.dart';
+import 'package:whatsappui/settings/lists/lists.dart';
+import 'package:whatsappui/settings/privacy/privacy.dart';
+import 'package:whatsappui/settings/storage_and_data/storage_data.dart';
+
+import 'Notifications.dart';
+import 'account/account.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
@@ -33,7 +47,7 @@ int startindex=11;
           'Settings',
           style: TextStyle(
             fontWeight: FontWeight.bold,
-            fontSize: 30,
+            fontSize: 25,
             color: Colors.white,
           ),
           textAlign: TextAlign.left,
@@ -101,6 +115,40 @@ int startindex=11;
                       currdata[index].settingsubtitles,
                       style: TextStyle(color: Colors.grey),
                     ),
+                     onTap: (){
+                      switch(currdata[index].settings){
+                        case 'Account':
+                         Get.to(AccountPage());
+                          break;
+                        case 'Privacy':
+                          Get.to(PrivacyPage());
+                          break;
+                        case 'Avatar':Get.to(AvatarPage());
+                          break;
+                        case 'Lists':Get.to(ListsPage());
+                          break;
+                        case 'Chats':Get.to(ChatsSettingsPage());
+                          break;
+                        case 'Notifications':Get.to(NotificationsPage());
+                          break;
+                        case 'Storage and data':Get.to(StorageAndData());
+                          break;
+                        case 'App language':Get.to(AppLanguage());
+                          break;
+                        case 'Help':Get.to(HelpPage());
+                          break;
+                        case 'Invite a friend':Get.to(InviteFriendPage());
+                          break;
+                        case 'App updates':Get.to(AppUpdatePage());
+                          break;
+                        case 'Open Instagram':
+                          break;
+                        case 'Open Facebook':
+                          break;
+                        case 'Open Threads':
+                          break;
+                      }
+                     },
                                    ),
                  );
               }
@@ -117,11 +165,8 @@ int startindex=11;
                 physics: NeverScrollableScrollPhysics(),
                 itemBuilder: (context,index){
               int dataindex=startindex+index;
-                return Padding(
-                  padding: EdgeInsets.only(left: 15),
-                  child: ListTile(leading: FaIcon(currdata[dataindex].icons.icon,color: Colors.grey,),
-                    title: Text(currdata[dataindex].settings,style: TextStyle(color: Colors.white),),),
-                );
+                return ListTile(leading: FaIcon(currdata[dataindex].icons.icon,color: Colors.grey,),
+                  title: Text(currdata[dataindex].settings,style: TextStyle(color: Colors.white),),);
             })
           ],
         ),

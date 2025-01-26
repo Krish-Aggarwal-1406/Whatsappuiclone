@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart ';
-import 'settings.dart';
+import '../settings/settings.dart';
 class NewGroupPage extends StatelessWidget {
   const NewGroupPage({super.key});
 
@@ -76,6 +76,7 @@ class NewGroupPage extends StatelessWidget {
             Container(alignment: Alignment.centerLeft,
                 padding: EdgeInsets.only(left: 15,top: 15),
                 child: Text('Contacts from Whatsapp',style: TextStyle(color: Colors.grey),)),
+            SizedBox(height: 10,),
             ListView.builder(itemCount: currdata.length-startindex,
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
